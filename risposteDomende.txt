@@ -1,0 +1,54 @@
+1)Cosa devi fare per usare il modulo HTTP?
+-bisogna importare dentro i lmoduel.ts httpclient module e poi lo crea automaticamente nel component.ts
+
+2) Prendendo in considerazione il componente Foo descrivi a cosa servono i seguenti attributi
+-data -> oggetto che conterrà la nostra chiamata http
+-loading -> variabile che dice se siamo in attesa di una rispsta dal sever
+-o -> notifica quando arriva la risposta dall'http server
+
+3) si scirve dentro i lcstruttore del ts così quando cerrà create l'istanza del componente fu angular ci passrà anche il modulo
+
+4)Spiega la differenza tra queste due notazioni
+-L'unica differenza è che scrivendo una variabile all'interno di un costruttore si va subito ad definire la variabile l'altro è soltanto un altro modo per farlo
+
+5) come si ottiene un oggetto observable che riceverà i dati da una get http?
+-per ottenere una oggetto observable bisogna fare una funziona lambda  e ottenerlo con una get mettendo insieme la notifica della rihiesta e quando abbiamo rpeso il nostro ggetto
+
+6)Come si “sottoscrive” un metodo che gestisca i dati ricevuti dall’oggetto observable descritto nella domanda precedente?
+-angular mette a disposizione un metodo che si chiama subcribe in questo cso come anche  il post sempre per la variabile "o" e ci permette di fare il subscribe di this.getData
+
+7)
+Commenta ogni riga del metodo getData
+-meotodo ceh notifica la risposta
+-la variabile d viene assegnata al tipo Object
+
+ getData = (d : Object) =>
+   {
+    -notifico l'oggetto ricevuto dal server
+     this.data = new Object(d);
+    -notifico che ho ricevuto i dati
+     this.loading = false;
+   }
+
+8)
+-creaimo un botton per far si che quando si va a premere il bottone andarà a fare qulla funzione
+<button type="button" (click)="makeRequest()">Make Request</button>
+-Utilizziamo *ngIf per vedere il div 'loading
+<div *ngIf="loading">loading...</div>
+-il tag pre visualizza il codice di ritorno all'interno della variabile
+-il | json dice ad angular di formattare il contenuto di data come json
+<pre>{{data | json}}</pre>
+
+9)Come si fa una post http? Cosa si riceve come risposta?
+-Quasi lo stesso tipo di operazione ma al posto di subscribe si va ad ad usare il metodo post che ci ritorna l'id del nostro post
+-e viene create una string JSON.stringfy a partire da un oggetto Typescript
+
+
+
+
+
+
+
+
+
+
